@@ -10,7 +10,7 @@ import (
 	cesv2 "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v2"
 	cesv2model "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v2/model"
 
-	//"github.com/Imgeath1994/cloudeye-exporter/logs"
+	"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 var (
