@@ -11,8 +11,8 @@ $ git clone https://github.com/huaweicloud/cloudeye-exporter
 
 ## (Option) Building The Discovery with Exact steps on clean Ubuntu 16.04 
 ```
-$ wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
-$ sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
+$ wget https://dl.google.com/go/go1.17.6.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
 $ export PATH=$PATH:/usr/local/go/bin # You should put in your .profile or .bashrc
 $ go version # to verify it runs and version #
 
@@ -35,10 +35,7 @@ Visit metrics in http://localhost:8087/metrics?services=SYS.VPC,SYS.ELB
 ```
 Usage of ./cloudeye-exporter:
   -config string
-        Path to the cloud configuration file (default "./clouds.yml")
-  -debug
-        If debug the code.
- 
+        Path to the cloud configuration file (default "./clouds.yml") 
 ```
 
 ## Example of config file(clouds.yml)
@@ -48,25 +45,14 @@ global:
   prefix: "huaweicloud"
   port: ":8087"
   metric_path: "/metrics"
-  scrape_batch_size: 10
+  scrape_batch_size: 300
+
 auth:
   auth_url: "https://iam.xxx.yyy.com/v3"
   project_name: "{project_name}"
   access_key: "{access_key}"
   secret_key: "{secret_key}"
   region: "{region}"
-
-```
-or
-
-```
-auth:
-  auth_url: "https://iam.xxx.yyy.com/v3"
-  project_name: "{project_name}"
-  user_name: "{username}"
-  password: "{password}"
-  region: "{region}"
-  domain_name: "{domain_name}"
 
 ```
 

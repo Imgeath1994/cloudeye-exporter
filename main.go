@@ -2,20 +2,20 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"net/http"
-	"os"
 	"strings"
+	"time"
+
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 
 	"github.com/huaweicloud/cloudeye-exporter/collector"
 	"github.com/huaweicloud/cloudeye-exporter/logs"
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 var (
 	clientConfig = flag.String("config", "./clouds.yml", "Path to the cloud configuration file")
-	filterEnable = flag.Bool("filter-enable", false, "Enabling monitoring metric filter")
-	debug        = flag.Bool("debug", false, "If debug the code.")
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -29,45 +29,49 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	registry := prometheus.NewRegistry()
 
 	logs.Logger.Infof("Start to monitor services: %s", targets)
-	exporter, err := collector.GetMonitoringCollector(*clientConfig, targets)
-	if err != nil {
-		w.WriteHeader(500)
-		_, err := w.Write([]byte(err.Error()))
-		if err != nil {
-			logs.Logger.Errorf("Fail to write response body, error: %s", err.Error())
-			return
-		}
-		return
-	}
+	exporter := collector.GetMonitoringCollector(targets)
 	registry.MustRegister(exporter)
-	if err != nil {
-		logs.Logger.Errorf("Fail to start to morning services: %+v, err: %s", targets, err.Error())
-		return
-	}
-
 	h := promhttp.HandlerFor(registry, promhttp.HandlerOpts{})
 	h.ServeHTTP(w, r)
+	logs.Logger.Infof("End to monitor services: %s", targets)
+}
+
+func epHandler(w http.ResponseWriter, r *http.Request) {
+	epsInfo, err := collector.GetEPSInfo()
+	if err != nil {
+		http.Error(w, fmt.Sprintf("get eps info error: %s", err.Error()), http.StatusInternalServerError)
+		return
+	}
+	_, err = w.Write([]byte(epsInfo))
+	if err != nil {
+		logs.Logger.Errorf("Response to caller error: %s", err.Error())
+	}
 }
 
 func main() {
 	flag.Parse()
-	logs.InitLog(*debug)
-	config, err := collector.NewCloudConfigFromFile(*clientConfig)
+	logs.InitLog()
+	err := collector.InitCloudConf(*clientConfig)
 	if err != nil {
-		logs.Logger.Fatal("New Cloud Config From File error: ", err.Error())
-		return
+		logs.Logger.Error("Init Cloud Config From File error: ", err.Error())
+		logs.FlushLogAndExit(1)
 	}
-	err = collector.InitFilterConfig(*filterEnable)
+	err = collector.InitMetricConf()
 	if err != nil {
-		logs.Logger.Fatal("Init filter Config error: ", err.Error())
-		return
+		logs.Logger.Error("Init metric Config error: ", err.Error())
+		logs.FlushLogAndExit(1)
 	}
 
-	http.HandleFunc(config.Global.MetricPath, handler)
-
-	logs.Logger.Infoln("Start server at ", config.Global.Port)
-	if err := http.ListenAndServe(config.Global.Port, nil); err != nil {
+	http.HandleFunc(collector.CloudConf.Global.MetricPath, handler)
+	http.HandleFunc(collector.CloudConf.Global.EpsInfoPath, epHandler)
+	server := &http.Server{
+		Addr:         collector.CloudConf.Global.Port,
+		ReadTimeout:  30 * time.Second,
+		WriteTimeout: 60 * time.Second,
+	}
+	logs.Logger.Info("Start server at ", collector.CloudConf.Global.Port)
+	if err := server.ListenAndServe(); err != nil {
 		logs.Logger.Errorf("Error occur when start server %s", err.Error())
-		os.Exit(1)
+		logs.FlushLogAndExit(1)
 	}
 }
