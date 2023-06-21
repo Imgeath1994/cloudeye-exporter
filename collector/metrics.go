@@ -3,14 +3,14 @@ package collector
 import (
 	"sync"
 
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-	ces "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
-	cesv2 "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v2"
-	cesv2model "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v2/model"
+	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
+	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
+	ces "./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1"
+	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
+	cesv2 "./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v2"
+	cesv2model "./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v2/model"
 
-	"github.com/huaweicloud/cloudeye-exporter/logs"
+	"./logs"
 )
 
 var (
