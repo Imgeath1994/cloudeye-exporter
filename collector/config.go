@@ -11,7 +11,7 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/iam/v3/model"
 	"gopkg.in/yaml.v3"
 
-	"./logs"
+	"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 type CloudAuth struct {
