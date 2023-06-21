@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
-	"github.com/prometheus/client_golang/prometheus"
+	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
+	"./vendor/github.com/prometheus/client_golang/prometheus"
 
 	"./logs"
 )
