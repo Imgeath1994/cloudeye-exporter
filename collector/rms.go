@@ -1,10 +1,10 @@
 package collector
 
 import (
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/rms/v1"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/rms/v1/model"
-	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/rms/v1/region"
+	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
+	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/rms/v1"
+	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/rms/v1/model"
+	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/rms/v1/region"
 )
 
 func getRMSClient() *v1.RmsClient {
