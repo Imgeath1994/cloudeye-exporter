@@ -241,7 +241,7 @@ func sendMetricData(ctx context.Context, ch chan<- prometheus.Metric, metric pro
 }
 
 func (exporter *BaseHuaweiCloudExporter) debugMetricInfo(md model.BatchMetricData) {
-	dataJson, err := json.Marshal(md)
+	//dataJson, err := json.Marshal(md)
 	if err != nil {
 	//	logs.Logger.Errorf("[%s] Marshal metricData error: %s", exporter.txnKey, err.Error())
 		return
