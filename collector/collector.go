@@ -2,7 +2,7 @@ package collector
 
 import (
 	"context"
-	"encoding/json"
+	//"encoding/json"
 	"errors"
 	"fmt"
 	"strings"
@@ -242,10 +242,10 @@ func sendMetricData(ctx context.Context, ch chan<- prometheus.Metric, metric pro
 
 func (exporter *BaseHuaweiCloudExporter) debugMetricInfo(md model.BatchMetricData) {
 	//dataJson, err := json.Marshal(md)
-	if err != nil {
+	//if err != nil {
 	//	logs.Logger.Errorf("[%s] Marshal metricData error: %s", exporter.txnKey, err.Error())
-		return
-	}
+	//	return
+	//}
 //	logs.Logger.Debugf("[%s] Get data points of metric are: %s", exporter.txnKey, string(dataJson))
 }
 
