@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
-	eps "./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/eps/v1"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/eps/v1/model"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/eps/v1/region"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
+	eps "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/eps/v1"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/eps/v1/model"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/eps/v1/region"
 )
 
 var epsInfo = &EpsInfo{
