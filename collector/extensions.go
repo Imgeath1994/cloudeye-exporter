@@ -1,7 +1,7 @@
 package collector
 
 import (
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
 )
 
 type ResourceInfoGetter interface {
