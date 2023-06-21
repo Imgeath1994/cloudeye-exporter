@@ -1,4 +1,4 @@
-module github.com/huaweicloud/cloudeye-exporter
+module github.com/Imgeath1994/cloudeye-exporter
 
 go 1.16
 
