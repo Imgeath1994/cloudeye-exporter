@@ -50,7 +50,7 @@ func epHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	flag.Parse()
-	logs.InitLog()
+	//logs.InitLog()
 	err := collector.InitCloudConf(*clientConfig)
 	//if err != nil {
 	//	logs.Logger.Error("Init Cloud Config From File error: ", err.Error())
@@ -72,6 +72,6 @@ func main() {
 	//logs.Logger.Info("Start server at ", collector.CloudConf.Global.Port)
 	if err := server.ListenAndServe(); err != nil {
 	//	logs.Logger.Errorf("Error occur when start server %s", err.Error())
-		logs.FlushLogAndExit(1)
+//		logs.FlushLogAndExit(1)
 	}
 }
