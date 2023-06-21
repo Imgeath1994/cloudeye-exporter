@@ -11,7 +11,7 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/iam/v3/model"
 	"gopkg.in/yaml.v3"
 
-	//"github.com/Imgeath1994/cloudeye-exporter/logs"
+	"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 type CloudAuth struct {
@@ -149,12 +149,12 @@ func InitConfig() error {
 	conf.Region = CloudConf.Auth.Region
 	conf.Password = CloudConf.Auth.Password
 	if conf.ProjectID == "" && conf.ProjectName == "" {
-	//	logs.Logger.Error("Init config error: ProjectID or ProjectName must setting.")
+		logs.Logger.Error("Init config error: ProjectID or ProjectName must setting.")
 		return errors.New("init config error: ProjectID or ProjectName must setting")
 	}
 	req, err := http.NewRequest("GET", conf.IdentityEndpoint, nil)
 	if err != nil {
-	//	logs.Logger.Error("Auth url is invalid.")
+		logs.Logger.Error("Auth url is invalid.")
 		return err
 	}
 	host = req.Host
@@ -162,11 +162,11 @@ func InitConfig() error {
 	if conf.ProjectID == "" {
 		resp, err := getProjectInfo()
 		if err != nil {
-	//		logs.Logger.Errorf("Get project info error: %s", err.Error())
+			logs.Logger.Errorf("Get project info error: %s", err.Error())
 			return err
 		}
 		if len(*resp.Projects) == 0 {
-	//		logs.Logger.Error("project info is empty")
+			logs.Logger.Error("project info is empty")
 			return errors.New("project info is empty")
 		}
 
