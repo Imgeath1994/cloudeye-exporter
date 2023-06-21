@@ -5,11 +5,11 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/iam/v3"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/iam/v3/model"
-	"./vendor/gopkg.in/yaml.v3"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/global"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/iam/v3"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/iam/v3/model"
+	"gopkg.in/yaml.v3"
 
 	"./logs"
 )
