@@ -64,11 +64,11 @@ func main() {
 
 	http.HandleFunc(collector.CloudConf.Global.MetricPath, handler)
 	http.HandleFunc(collector.CloudConf.Global.EpsInfoPath, epHandler)
-	server := &http.Server{
-		Addr:         collector.CloudConf.Global.Port,
-		ReadTimeout:  30 * time.Second,
-		WriteTimeout: 60 * time.Second,
-	}
+	//server := &http.Server{
+	//	Addr:         collector.CloudConf.Global.Port,
+	//	ReadTimeout:  30 * time.Second,
+	//	WriteTimeout: 60 * time.Second,
+	//}
 	//logs.Logger.Info("Start server at ", collector.CloudConf.Global.Port)
 	//if err := server.ListenAndServe(); err != nil {
 	//	logs.Logger.Errorf("Error occur when start server %s", err.Error())
