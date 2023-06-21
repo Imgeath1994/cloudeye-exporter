@@ -3,9 +3,9 @@ package collector
 import (
 	"time"
 
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
 
-	"./logs"
+	"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 type RdsInstanceInfo struct {
