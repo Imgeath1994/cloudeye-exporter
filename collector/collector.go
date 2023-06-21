@@ -12,7 +12,7 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/huaweicloud/cloudeye-exporter/logs"
+	"./logs"
 )
 
 type BaseHuaweiCloudExporter struct {
