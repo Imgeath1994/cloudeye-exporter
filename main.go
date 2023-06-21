@@ -7,11 +7,11 @@ import (
 	"strings"
 	"time"
 
-	"./vendor/github.com/prometheus/client_golang/prometheus"
-	"./vendor/github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/Imgeath1994/cloudeye-exporter/vendor/github.com/prometheus/client_golang/prometheus"
+	"github.com/Imgeath1994/cloudeye-exporter/vendor/github.com/prometheus/client_golang/prometheus/promhttp"
 
-	"./collector"
-	"./logs"
+	"github.com/Imgeath1994/cloudeye-exporter/collector"
+	"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 var (
