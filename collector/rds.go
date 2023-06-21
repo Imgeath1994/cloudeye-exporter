@@ -5,7 +5,7 @@ import (
 
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
 
-	"github.com/Imgeath1994/cloudeye-exporter/logs"
+	//"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 type RdsInstanceInfo struct {
@@ -68,7 +68,7 @@ func (getter RDSInfo) GetResourceInfo() (map[string]labelInfo, []model.MetricInf
 func getAllRdsInstanceSFromRMS() ([]RdsInstanceInfo, error) {
 	resp, err := listResources("rds", "instances")
 	if err != nil {
-		logs.Logger.Errorf("Failed to list resource of rds.instances, error: %s", err.Error())
+	//	logs.Logger.Errorf("Failed to list resource of rds.instances, error: %s", err.Error())
 		return nil, err
 	}
 	rdsInstances := make([]RdsInstanceInfo, 0, len(resp))
@@ -76,7 +76,7 @@ func getAllRdsInstanceSFromRMS() ([]RdsInstanceInfo, error) {
 		var rdsInstanceProperties RdsInstanceProperties
 		err := fmtResourceProperties(resource.Properties, &rdsInstanceProperties)
 		if err != nil {
-			logs.Logger.Errorf("fmt rds properties error: %s", err.Error())
+	//		logs.Logger.Errorf("fmt rds properties error: %s", err.Error())
 			continue
 		}
 		rdsInstances = append(rdsInstances, RdsInstanceInfo{
