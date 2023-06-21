@@ -17,7 +17,7 @@ import (
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/impl"
 	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
 
-	//"github.com/Imgeath1994/cloudeye-exporter/logs"
+	"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 const TTL = time.Hour * 3
@@ -28,7 +28,7 @@ func init() {
 	var err error
 	tagRegexp, err = regexp.Compile("^([a-z]|[A-Z]){1}([a-z]|[A-Z]|_)*$")
 	if err != nil {
-	//	logs.Logger.Error("init tag regexp error: %s", err.Error())
+		logs.Logger.Error("init tag regexp error: %s", err.Error())
 	}
 }
 
