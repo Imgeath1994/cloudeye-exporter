@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Imgeath1994/cloudeye-exporter/vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
-	"github.com/Imgeath1994/cloudeye-exporter/vendor/github.com/prometheus/client_golang/prometheus"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
+	"github.com/prometheus/client_golang/prometheus"
 
 	"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
