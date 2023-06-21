@@ -10,7 +10,7 @@ import (
 	cesv2 "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v2"
 	cesv2model "github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v2/model"
 
-	"github.com/Imgeath1994/cloudeye-exporter/logs"
+	//"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 var (
@@ -38,7 +38,7 @@ func batchQueryMetricData(metrics *[]model.MetricInfo, from, to int64) (*[]model
 
 	v, err := getCESClient().BatchListMetricData(options)
 	if err != nil {
-		logs.Logger.Errorf("Failed to get metricdata: %s", err.Error())
+	//	logs.Logger.Errorf("Failed to get metricdata: %s", err.Error())
 		return nil, err
 	}
 
@@ -52,7 +52,7 @@ func listAllMetrics(namespace string) ([]model.MetricInfoList, error) {
 	for {
 		res, err := getCESClient().ListMetrics(reqParam)
 		if err != nil {
-			logs.Logger.Errorf("ListMetrics error, detail: %s", err.Error())
+	//		logs.Logger.Errorf("ListMetrics error, detail: %s", err.Error())
 			break
 		}
 		if res.Metrics == nil {
@@ -102,7 +102,7 @@ func loadAgentDimensions(instanceID string) {
 		}
 		response, err := getCESClientV2().ListAgentDimensionInfo(request)
 		if err != nil {
-			logs.Logger.Errorf("Failed to list agentDimensions: %s", err.Error())
+	//		logs.Logger.Errorf("Failed to list agentDimensions: %s", err.Error())
 			return
 		}
 		for _, dimension := range *response.Dimensions {
