@@ -90,7 +90,7 @@ func (exporter *BaseHuaweiCloudExporter) setProData(ctx context.Context, ch chan
 			prometheus.GaugeValue, data, label.Value...)
 		if err != nil {
 	//		logs.Logger.Errorf("[%s] New const metric error: %s, fqName: %s, label: %+v",
-				exporter.txnKey, err.Error(), fqName, label)
+	//			exporter.txnKey, err.Error(), fqName, label)
 			continue
 		}
 		if err := sendMetricData(ctx, ch, proMetric); err != nil {
