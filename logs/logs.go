@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
-	"gopkg.in/natefinch/lumberjack.v2"
-	"gopkg.in/yaml.v3"
+	"./vendor/go.uber.org/zap"
+	"./vendor/go.uber.org/zap/zapcore"
+	"./vendor/gopkg.in/natefinch/lumberjack.v2"
+	"./vendor/gopkg.in/yaml.v3"
 )
 
 var Logger LoggerConstructor
