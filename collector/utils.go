@@ -10,14 +10,14 @@ import (
 	"sync"
 	"time"
 
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/def"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/core/impl"
-	"./vendor/github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/auth/basic"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/config"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/def"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/core/impl"
+	"github.com/huaweicloud/huaweicloud-sdk-go-v3/services/ces/v1/model"
 
-	"./logs"
+	"github.com/Imgeath1994/cloudeye-exporter/logs"
 )
 
 const TTL = time.Hour * 3
