@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Imgeath1994/cloudeye-exporter/vendor/github.com/prometheus/client_golang/prometheus"
-	"github.com/Imgeath1994/cloudeye-exporter/vendor/github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 
 	"github.com/Imgeath1994/cloudeye-exporter/collector"
 	"github.com/Imgeath1994/cloudeye-exporter/logs"
